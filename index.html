@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unovis Donut with Configurable Labels</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@unovis/ts@1.4.3/dist/styles.css" />
+  <style>
+    body { font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 16px; color: #0f172a; }
+    .controls { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+    .controls label { font-weight: 600; }
+    .controls select, .controls input[type="checkbox"] { font-size: 14px; padding: 4px 6px; }
+    #chart { width: 760px; height: 420px; border: 1px solid #e2e8f0; border-radius: 8px; }
+    /* Label layer styles */
+    .label-layer text { font: 12px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #1f2937; pointer-events: none; }
+    .label-layer line, .label-layer polyline { stroke: #475569; stroke-width: 1; fill: none; }
+  </style>
+  <!-- Prevent FOUC for module imports on slow networks -->
+</head>
+<body>
+  <div class="controls">
+    <label for="labelPosition">Label Position</label>
+    <select id="labelPosition">
+      <option value="inside" selected>Inside</option>
+      <option value="outside">Outside</option>
+    </select>
+
+    <label id="showLinesLabel" style="display:none; gap:6px; align-items:center;">
+      <input id="showLines" type="checkbox" /> Show connecting lines
+    </label>
+  </div>
+
+  <div id="chart"></div>
+
+  <script type="module" src="/workspace/main.mjs"></script>
+</body>
+</html>
